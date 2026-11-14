@@ -10,6 +10,10 @@ import { join } from 'node:path';
 
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-const JOKE = 'My coding agent reviewed my pull request and left 47 comments. It wrote the pull request.';
+// The setup and the punchline stay separate constants: the reframe only lands
+// because the two sentences are joined by exactly one space, in this order.
+const SETUP = 'My coding agent reviewed my pull request and left 47 comments.';
+const PUNCHLINE = 'It wrote the pull request.';
+const JOKE = `${SETUP} ${PUNCHLINE}`;
 
 writeFileSync(join(OUTPUT_DIR, 'entry.txt'), JOKE);
